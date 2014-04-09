@@ -1,0 +1,15 @@
+<h1>Créer un compte</h1>
+
+{% if error %}
+<p><strong>Erreur de création.</strong></p>
+{% endif %}
+
+{% if sauvegarde %}
+Vous êtes connecté, {{ user.username }} !
+{% else %}
+<form method="post" action=".">
+ 	   {% csrf_token %}
+ 	   {{ form.as_p }}
+    <input type="submit"/>
+</form>
+{% endif %}
